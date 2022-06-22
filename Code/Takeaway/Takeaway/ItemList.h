@@ -1,22 +1,25 @@
 #pragma once
+
 #include "Item.h"
-#include <iostream>
+#include "Appetiser.h"
+#include "Beverage.h"
+#include "MainCourse.h"
 #include <vector>
-#include <cstring>
+#include <string>
 #include <fstream>
-#include <sstream>
+#include <sstream> 
 
-
-using namespace std;
 
 class ItemList
 {
-	protected:
-		vector<Item*> items;
+protected:
+	//Create a protected vector of items that stores all the items from menu.csv
+	vector<Item*> items;
 
-	public:				
-		
-		virtual void toString() = 0;
-
+public:			
+	//Pure virtual function toString that gets overwritten
+	virtual string toString() = 0;
+	//GetVector function declared to get the items vector so takeaway.cpp can access it
+	vector<Item*> GetVector();
 };
 
